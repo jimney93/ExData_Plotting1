@@ -2,8 +2,8 @@
 # source("load_Data.R")
 
 # load data if data directory not found
-if(!file.exist("data/household_power_consumption.txt")){
-  message ("loading data")
+if(!file.exists("data/household_power_consumption.txt")){
+  message ("======> loading data")
   df <- load_data()
 }
 

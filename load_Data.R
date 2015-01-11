@@ -1,3 +1,6 @@
+# load_data function will download dataset from specified url
+# data is loaded into a separate directory in the working directory
+# if the directory is not found one will be created
 
 load_data <- function(){
     # download dataset from UC Irvine Machine Learning Repo
@@ -15,7 +18,8 @@ load_data <- function(){
     
     wrk <- read.table("./data/household_power_consumption.txt", 
                       header = T, stringsAsFactors = F, sep = ";", 
-                      colClasses = c(rep("character", 2), rep("numeric", 7)))
+                      colClasses = c(rep("character", 2), rep("numeric", 7)),
+                      na.strings = "?")
     
     # convert character Date and Time columns to vector of date-time class
     x <- strptime(paste(wrk$Date, wrk$Time), "%d/%m/%Y %H:%M:%S")
